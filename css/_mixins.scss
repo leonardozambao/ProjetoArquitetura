@@ -1,0 +1,17 @@
+@mixin square($size){
+    width: $size;
+    height: $size;
+}
+%flex--end{
+    justify-content: flex-end;
+}
+%align--end{
+    align-items: flex-end;
+}
+%transition{
+    transition: all 400ms ease;
+}
+%center-auto{
+    margin-left: auto;
+    margin-right: auto;
+}

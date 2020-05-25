@@ -1,0 +1,15 @@
+.btn--green:hover{
+    background-color: $dark-green;
+}
+.header_nav{
+    a:hover{
+        color: $dark-green;
+        &::after{
+            bottom: -5px;
+            background-color: $dark-green;
+        }
+    }
+}
+.header_logo:hover{
+    animation: heartBeat 500ms infinite;
+}
