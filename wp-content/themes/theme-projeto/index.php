@@ -1,5 +1,5 @@
 <?php 
-include("header.php");
+get_header();
 ?>
 
 <h1 class="title_section text-center bebas">
@@ -13,5 +13,5 @@ include("header.php");
 </section>
 
 <?php 
-include("footer.php");
+get_footer();
 ?>

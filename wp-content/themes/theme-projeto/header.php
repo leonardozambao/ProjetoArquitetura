@@ -1,6 +1,4 @@
 <?php
-global $title;
-$title = "Assistência de Animais";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,13 +12,15 @@ $title = "Assistência de Animais";
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
-    <title><?php echo $title; ?></title>
+    <title><?php echo get_the_title(); ?></title>
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/lazysizes.min.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/chlebalize.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-3.4.1.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/lazysizes.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/chlebalize.js"></script>
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
+
+    <?php wp_head(); ?>
 </head>
 
 <body>
@@ -28,11 +28,11 @@ $title = "Assistência de Animais";
         <div class="header_line">
             <div class="container flex-between">
                 <a href="">
-                    <img src="images/ico-email.svg" alt="E-mail">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/ico-email.svg" alt="E-mail">
                     loremipsum@live.com
                 </a>
                 <a href="">
-                    <img src="images/ico-tel.svg" alt="Telefone">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/ico-tel.svg" alt="Telefone">
                     (11) 4002-8922
                 </a>
             </div>
@@ -40,7 +40,7 @@ $title = "Assistência de Animais";
         <section class="header_main">
             <div class="container flex-between flex-align-center">
                 <a href="">
-                    <img src="images/logo.png" alt="<?php echo $title; ?>" class="header_logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php echo $title; ?>" class="header_logo">
                 </a>
                 <nav class="header_nav">
                     <ul class="flex-center">
