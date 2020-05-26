@@ -608,9 +608,27 @@ textarea::placeholder {
   }
 }
 
+.banner_page .title_banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.box_form {
+  -webkit-box-shadow: 0px 1px 7px #00000040;
+          box-shadow: 0px 1px 7px #00000040;
+}
+
 header, header *, .header_nav li a::after {
   -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
+}
+
+.box_form {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @-webkit-keyframes heartBeat {
@@ -674,6 +692,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2;
 }
 
 header.no-top:not(.show) {
@@ -779,21 +798,74 @@ header .container {
   margin: 20px 0;
 }
 
-.btn--green:hover {
-  background-color: #749F03;
+.banner_page {
+  position: relative;
 }
 
-.header_nav a:hover {
-  color: #749F03;
+.banner_page img {
+  width: calc(100vw + 20px);
+  position: relative;
+  left: -10px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  min-height: 350px;
+  max-height: 450px;
+  -webkit-filter: blur(3px) brightness(0.3);
+          filter: blur(3px) brightness(0.3);
 }
 
-.header_nav a:hover::after {
-  bottom: -5px;
-  background-color: #749F03;
+.banner_page .title_banner {
+  color: #fff;
+  font-size: 5.5rem;
+  letter-spacing: 0.15em;
+  z-index: 2;
 }
 
-.header_logo:hover {
-  -webkit-animation: heartBeat 500ms infinite;
-          animation: heartBeat 500ms infinite;
+.text_disclaimer {
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.form_doacao {
+  padding: 40px 0;
+}
+
+.box_form {
+  max-width: 600px;
+  padding: 1rem 3rem;
+  margin-top: 30px;
+}
+
+.box_form label {
+  display: block;
+  margin: 20px 0;
+  font-size: 1.8rem;
+}
+
+.box_form label select,
+.box_form label textarea,
+.box_form label input {
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  border: solid 1px #555555;
+  font-size: 1.8rem;
+}
+
+@media screen and (min-width: 861px) {
+  .btn--green:hover {
+    background-color: #749F03;
+  }
+  .header_nav a:hover {
+    color: #749F03;
+  }
+  .header_nav a:hover::after {
+    bottom: -5px;
+    background-color: #749F03;
+  }
+  .header_logo:hover {
+    -webkit-animation: heartBeat 500ms infinite;
+            animation: heartBeat 500ms infinite;
+  }
 }
 /*# sourceMappingURL=style.css.map */

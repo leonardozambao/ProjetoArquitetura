@@ -1,4 +1,3 @@
-    </div> <!-- container -->
 </main>
 <footer>
     <div class="footer_signature">
@@ -7,6 +6,7 @@
 </footer>
 <?php wp_footer();  ?>
 <style>
+    html{margin-top: 0!important;}
     #wpadminbar{display: none}
 </style>
 </body>

@@ -2,6 +2,20 @@
     width: $size;
     height: $size;
 }
+@mixin absolute($x, $y){
+    position: absolute;
+    top: $y;
+    left: $x;
+}
+%absoluteCenter{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+%shadow{
+    box-shadow: 0px 1px 7px #00000040;
+}
 %flex--end{
     justify-content: flex-end;
 }
