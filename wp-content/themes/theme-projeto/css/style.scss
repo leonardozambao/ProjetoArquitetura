@@ -30,7 +30,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2;
+    z-index: 5;
     @extend %transition;
     *{
         @extend %transition;
@@ -149,6 +149,7 @@ header{
         display: block;
         margin: 20px 0;
         font-size: 1.8rem;
+        font-weight: 500;
         select,
         textarea,
         input{
@@ -158,6 +159,55 @@ header{
             border: solid 1px $dark-grey;
             font-size: 1.8rem;
         }
+        input[type="file"]{
+            border: 0;
+            padding: 0;
+        }
+    }
+    small{
+        font-size: 1.4rem;
+    }
+    .btn{ 
+        margin: 30px auto 15px;
+    }
+}
+.vitrine{
+    padding: 40px 0;
+}
+.title_vitrine{
+    font-size: 3.3rem;
+}
+.filter{
+    span{
+        font-size: 2rem;
+        font-weight: 500;
+    }
+    a{
+        font-weight: 500;
+        &.act::after{
+            content: '+';
+            display: inline-block;
+            margin-left: 5px;
+        }
+    }
+    .custom_select{
+        padding: 5px;
+        &:not(.expanded){
+            a{
+                pointer-events: none;
+            }
+        }
+    }
+}
+.item_vitrine{
+    width: calc(33% - 20px);
+    margin-bottom: 30px;
+    @extend %shadow;
+    & + .item_vitrine{
+        margin-left: 30px;
+    }
+    &:nth-child(3n+4){
+        margin-left: 0;
     }
 }
 

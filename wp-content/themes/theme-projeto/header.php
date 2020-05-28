@@ -16,6 +16,8 @@
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-3.4.1.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/lazysizes.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/axios.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/vue.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/slick.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/chlebalize.js"></script>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
