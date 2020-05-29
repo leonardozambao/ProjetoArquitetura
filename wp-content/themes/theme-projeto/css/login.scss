@@ -1,0 +1,58 @@
+@import url('fonts/stylesheet.css');
+@import '_chlebalize.scss';
+@import '_variables.scss';
+@import '_mixins.scss';
+html{
+    font-family: 'Roboto';
+    color: $dark-grey;
+}
+.login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .banner{
+        @include absolute(0,0);
+        @include square(100%);
+        object-fit: cover;
+        filter: blur(2px);
+    }
+    .box_login{
+        position: relative;
+        z-index: 2;
+        @extend %shadow;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: rgba(255,255,255,0.7);
+        width: 100%;
+        max-width: 400px;
+        p{
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        span{
+            color: $red;
+            font-weight: 500;
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .logo{
+            width: 120px;
+            @extend %center-auto;
+            margin-bottom: 20px;
+        }
+        input{
+            border: solid 1px $dark-grey;
+            padding: 10px 5px;
+            & + input{
+                margin-top: 20px;
+            }
+        }
+        .btn{
+            @extend %btn;
+        }
+    }
+}
