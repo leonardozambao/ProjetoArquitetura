@@ -1,7 +1,7 @@
 <?php
 require_once("database/Conect.php");
 session_start();
-$_SESSION["usuario"] = "Leonardo";
+
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if (isset($_POST['usuario'])) {
@@ -17,9 +17,11 @@ if (isset($_POST['usuario'])) {
     if (empty($informacao)) {
         $mensagem = "Login falhou, nenhum usuario encontrado";
     } else {
+        $_SESSION["usuario"] = $informacao["Nome"];
+        $_SESSION["usuarioID"] = $informacao["ID"];
         include 'class/Redirect.php';
         $redirect = new Redirect();
-        $redirect->RedirectToTarget('home');
+        $redirect->RedirectToHome();
     }
 }
 

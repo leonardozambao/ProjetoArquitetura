@@ -45,6 +45,10 @@ header{
     .container{
         overflow: hidden;
     }
+    .logout_link{
+        margin-top: 5px;
+        text-decoration: underline;
+    }
 }
 .header_line{
     background-color: $dark-green;

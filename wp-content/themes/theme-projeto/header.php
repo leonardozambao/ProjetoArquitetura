@@ -1,5 +1,13 @@
 <?php
 session_start();
+if (!isset($_SESSION["usuario"])) {
+    include 'class/Redirect.php';
+    $redirect = new Redirect();
+    $redirect->RedirectToTarget('login');
+} else {
+    $userNome = $_SESSION["usuario"];
+    $userId = $_SESSION["usuarioID"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +21,7 @@ session_start();
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
     <meta property="og:image" content="" />
-    <title><?php echo get_bloginfo( 'name' ); ?></title>
+    <title><?php echo get_bloginfo('name'); ?></title>
 
     <script src="<?php echo get_template_directory_uri(); ?>/js/jquery-3.4.1.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/js/lazysizes.min.js"></script>
@@ -43,7 +51,7 @@ session_start();
         <section class="header_main">
             <div class="container flex-between flex-align-center">
                 <a href="<?php echo get_site_url(); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php echo get_bloginfo( 'name' ); ?>" class="header_logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php echo get_bloginfo('name'); ?>" class="header_logo">
                 </a>
                 <nav class="header_nav">
                     <ul class="flex-center">
@@ -54,11 +62,13 @@ session_start();
                         <li><a href="<?php echo get_site_url(); ?>/contato">Contato</a></li>
                     </ul>
                 </nav>
-                <a href="<?php echo get_site_url(); ?>/adotar" class="btn btn--green">
-                    Quero Adotar
+                <div class="flex-column flex-align-center">
+                <a href="<?php echo get_site_url(); ?>/usuario?ID=" class="btn btn--green" title="Visualizar meu perfil">
+                    Olá, <?php echo $userNome; ?>
                 </a>
+                <a href="<?php echo get_site_url(); ?>/logout" class="logout_link">Logout</a>
+                </div>
             </div>
         </section>
     </header>
     <main>
-            

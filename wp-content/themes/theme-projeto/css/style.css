@@ -720,6 +720,11 @@ header .container {
   overflow: hidden;
 }
 
+header .logout_link {
+  margin-top: 5px;
+  text-decoration: underline;
+}
+
 .header_line {
   background-color: #749F03;
   padding: 7px 0;
