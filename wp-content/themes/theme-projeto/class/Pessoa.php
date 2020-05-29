@@ -1,10 +1,18 @@
 <?php 
 class Pessoa{
     protected $nome;
+    protected $cpf;
+    protected $email;
+    protected $cep;
+    protected $cidade;
+    protected $estado;
+    protected $bairro;
+    protected $rua;
+    protected $senha;
+    protected $telefone;
 
-    public function __construct($tmpNome)
+    public function __construct()
     {
-        $this->nome = $tmpNome;
     }
 
     public function setNome($novoNome){

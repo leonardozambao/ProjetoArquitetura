@@ -1,14 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION["usuario"])) {
-    include 'class/Redirect.php';
-    $redirect = new Redirect();
-    $redirect->RedirectToTarget('login');
-} else {
-    $userNome = $_SESSION["usuario"];
-    $primeiroNome = explode(" ", $userNome);
-    $userId = $_SESSION["usuarioID"];
-}
+require_once('controller/control-header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,12 +55,22 @@ if (!isset($_SESSION["usuario"])) {
                     </ul>
                 </nav>
                 <div class="flex-column flex-align-center">
-                <a href="<?php echo get_site_url(); ?>/usuario?ID=" class="btn btn--green" title="Visualizar meu perfil">
-                    Olá, <?php echo $primeiroNome[0]; ?>
-                </a>
-                <a href="<?php echo get_site_url(); ?>/logout" class="logout_link">Logout</a>
+                    <a href="<?php echo get_site_url(); ?>/usuario?ID=" class="btn btn--green" title="Visualizar meu perfil">
+                        Olá, <?php echo $primeiroNome[0]; ?>
+                    </a>
+                    <a href="javascript:void(0);" onclick="logout();" class="logout_link">Logout</a>
                 </div>
             </div>
         </section>
     </header>
+    <script>
+        function logout() {
+            $.ajax({
+                url: "<?php echo get_template_directory_uri(); ?>/controller/control-logout.php",
+            }).done(function() {
+                console.log('deslogou');
+                location.reload();
+            });
+        }
+    </script>
     <main>
