@@ -1,4 +1,30 @@
-<?php 
+<?php
+require_once("database/Conect.php");
+$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+session_start();
+$userId = $_SESSION["usuarioID"];
+
+if(isset($_POST["nome"])){
+    $nome = $_POST["nome"];
+    $especie = $_POST["especie"];
+    $raca = $_POST["raca"];
+    $idade = $_POST["idade"];
+    $cor = $_POST["cor"];
+    $foto = $_POST["foto"];
+    $documentos = $_POST["documentacao"];
+
+    print_r($_POST);
+
+    $inserir = "INSERT INTO animais (Nome, Especie, Raca,Cor,Idade,Foto,Documentos,UsuarioID) ";
+    $inserir .= "VALUES ('".$nome."','".$especie."','".$raca."','".$cor."','".$idade."','".$foto."','".$documentos."','".$userId."')";
+
+    $query = mysqli_query($connection, $inserir);
+    if(!$query){
+        die('erro no banco de dados, não foi possível inserir os dados');
+    }
+}
+
+
 get_header();
 ?>
 <section class="banner_page">
@@ -11,7 +37,7 @@ get_header();
 <section class="form form_doacao">
     <div class="container">
         <p class="text-center text_disclaimer">Preencha o formulário abaixo com os dados do seu pet para listar ele em nosso site</p>
-        <div class="box_form" id="form_doacao">
+        <form class="box_form" id="form_doacao" method="POST" action="<?php echo $url; ?>">
             <label for="" class="full">
                 Nome do animal: *
                 <input type="text" name="nome" id="nome">
@@ -49,10 +75,12 @@ get_header();
             </label>
             <small>* campos obrigatórios</small>
             <button class="btn btn--green">Enviar</button>
-        </div>
+        </form>
     </div>
 </section>
 
-<?php 
+<?php
+
+
 get_footer();
 ?>

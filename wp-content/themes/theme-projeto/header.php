@@ -6,6 +6,7 @@ if (!isset($_SESSION["usuario"])) {
     $redirect->RedirectToTarget('login');
 } else {
     $userNome = $_SESSION["usuario"];
+    $primeiroNome = explode(" ", $userNome);
     $userId = $_SESSION["usuarioID"];
 }
 ?>
@@ -64,7 +65,7 @@ if (!isset($_SESSION["usuario"])) {
                 </nav>
                 <div class="flex-column flex-align-center">
                 <a href="<?php echo get_site_url(); ?>/usuario?ID=" class="btn btn--green" title="Visualizar meu perfil">
-                    Olá, <?php echo $userNome; ?>
+                    Olá, <?php echo $primeiroNome[0]; ?>
                 </a>
                 <a href="<?php echo get_site_url(); ?>/logout" class="logout_link">Logout</a>
                 </div>

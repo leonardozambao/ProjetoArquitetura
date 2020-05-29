@@ -1,7 +1,6 @@
 <?php 
 class Pessoa{
     protected $nome;
-    const ESPECIE = "Humano";
 
     public function __construct($tmpNome)
     {
