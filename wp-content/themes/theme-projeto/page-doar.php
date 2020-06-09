@@ -1,6 +1,6 @@
 <?php
-require_once('controller/control-doar.php');
 get_header();
+require_once('controller/control-doar.php');
 ?>
 <section class="banner_page">
     <h1 class="title_banner text-center">
@@ -12,14 +12,14 @@ get_header();
 <section class="form form_doacao">
     <div class="container">
         <p class="text-center text_disclaimer">Preencha o formulário abaixo com os dados do seu pet para listar ele em nosso site</p>
-        <form class="box_form" id="form_doacao" method="POST" action="<?php echo $url; ?>">
+        <form class="box_form" id="form_doacao" method="POST" action="<?php echo $url; ?>" enctype="multipart/form-data">
             <label for="" class="full">
                 Nome do animal: *
-                <input type="text" name="nome" id="nome">
+                <input type="text" name="nome" id="nome" required>
             </label>
             <label for="" class="full">
                 Espécie: *
-                <select name="especie" id="especie">
+                <select name="especie" id="especie" required>
                     <option value="">Selecione</option>
                     <option value="cachorro">Cachorro</option>
                     <option value="gato">Gato</option>
@@ -42,7 +42,7 @@ get_header();
             </label>
             <label for="" class="full">
                 Foto:
-                <input type="file" name="foto" id="foto" accept=".png, .jpg, .jpeg, .svg, .pdf">
+                <input type="file" name="foto" id="foto" accept=".png, .jpg, .jpeg, .svg">
             </label>
             <label for="" class="full">
                 Documentação:
@@ -56,6 +56,6 @@ get_header();
 
 <?php
 
-
 get_footer();
+
 ?>

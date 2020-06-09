@@ -10,13 +10,21 @@ if(isset($_POST["nome"])){
     $raca = $_POST["raca"];
     $idade = $_POST["idade"];
     $cor = $_POST["cor"];
-    $foto = $_POST["foto"];
-    $documentos = $_POST["documentacao"];
+    require_once get_template_directory().'/class/Upload.php';
+    $uploadFoto = new Upload();
+    $uploadDoc = new Upload();
 
-    print_r($_POST);
+    if(isset($_FILES['foto'])){
+        $pathFoto = $uploadFoto->upFoto($_FILES['foto'], 'foto');
+        echo $pathFoto;
+    }
+    if(isset($_FILES['documentacao'])){
+        $pathDocumento = $uploadDoc->upFoto($_FILES['documentacao'], 'documento');
+        echo $pathDocumento;
+    }
 
     $inserir = "INSERT INTO animais (Nome, Especie, Raca,Cor,Idade,Foto,Documentos,UsuarioID) ";
-    $inserir .= "VALUES ('".$nome."','".$especie."','".$raca."','".$cor."','".$idade."','".$foto."','".$documentos."','".$userId."')";
+    $inserir .= "VALUES ('".$nome."','".$especie."','".$raca."','".$cor."','".$idade."','".$pathFoto."','".$pathDocumento."','".$userId."')";
 
     $query = mysqli_query($connection, $inserir);
     if(!$query){
