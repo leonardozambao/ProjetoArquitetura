@@ -1,9 +1,14 @@
 <?php 
 
 require_once get_template_directory().'/database/Conect.php';
+include get_template_directory().'/class/Redirect.php';
 session_start();
 
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+if(isset($_SESSION['usuario'])){
+    $redirect = new Redirect();
+    $redirect->RedirectToHome();
+}
 
 if (isset($_POST['usuario'])) {
     $usuario = $_POST['usuario'];
@@ -20,7 +25,6 @@ if (isset($_POST['usuario'])) {
     } else {
         $_SESSION["usuario"] = $informacao["Nome"];
         $_SESSION["usuarioID"] = $informacao["ID"];
-        include get_template_directory().'/class/Redirect.php';
         $redirect = new Redirect();
         $redirect->RedirectToHome();
     }

@@ -49,13 +49,12 @@ require_once('controller/control-header.php');
                     <ul class="flex-center">
                         <li><a href="<?php echo get_site_url(); ?>/doar">Doar</a></li>
                         <li><a href="<?php echo get_site_url(); ?>/adotar">Adotar</a></li>
-                        <li><a href="<?php echo get_site_url(); ?>/tenho-emergencia">Tenho Emergência</a></li>
                         <li><a href="<?php echo get_site_url(); ?>/quem-somos">Quem Somos</a></li>
                         <li><a href="<?php echo get_site_url(); ?>/contato">Contato</a></li>
                     </ul>
                 </nav>
                 <div class="flex-column flex-align-center">
-                    <a href="<?php echo get_site_url(); ?>/usuario?ID=" class="btn btn--green" title="Visualizar meu perfil">
+                    <a href="<?php echo get_site_url(); ?>/meu-perfil" class="btn btn--green" title="Visualizar meu perfil">
                         Olá, <?php echo $primeiroNome[0]; ?>
                     </a>
                     <a href="javascript:void(0);" onclick="logout();" class="logout_link">Logout</a>
@@ -63,6 +62,17 @@ require_once('controller/control-header.php');
             </div>
         </section>
     </header>
+    <?php if(!is_page('home')){ ?>
+    <section class="breadcrumb">
+        <div class="container">
+            <ul class="flex">
+                <li><a href="<?php echo get_site_url(); ?>">Home</a></li>
+                <li>></li>
+                <li><?php echo get_the_title(); ?></li>
+            </ul>
+        </div>
+    </section>
+    <?php } ?>
     <script>
         function logout() {
             $.ajax({

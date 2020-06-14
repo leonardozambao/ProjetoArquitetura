@@ -915,6 +915,22 @@ header .logout_link {
   margin-left: 0;
 }
 
+.breadcrumb {
+  margin: 20px 0;
+}
+
+.breadcrumb li {
+  font-size: 1.8rem;
+}
+
+.breadcrumb li a {
+  font-size: inherit;
+}
+
+.breadcrumb li + li {
+  margin-left: 15px;
+}
+
 @media screen and (min-width: 861px) {
   .btn--green:hover {
     background-color: #749F03;
