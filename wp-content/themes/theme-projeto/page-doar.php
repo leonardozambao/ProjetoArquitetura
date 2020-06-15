@@ -35,7 +35,7 @@ require_once('controller/control-doar.php');
             </label>
             <label for="" class="full">
                 Idade:
-                <input type="number" name="idade" id="idade" min="0" max="150">
+                <input type="text" name="idade" id="idade" >
             </label>
             <label for="" class="full">
                 Foto:
@@ -44,6 +44,10 @@ require_once('controller/control-doar.php');
             <label for="" class="full">
                 Documentação:
                 <input type="file" name="documentacao" id="documentacao" accept=".png, .jpg, .jpeg, .svg, .pdf">
+            </label>
+            <label for="" class="full">
+                Descrição:
+                <textarea name="descricao" id="descricao" rows="3"></textarea>
             </label>
             <small>* campos obrigatórios</small>
             <button class="btn btn--green">Enviar</button>
