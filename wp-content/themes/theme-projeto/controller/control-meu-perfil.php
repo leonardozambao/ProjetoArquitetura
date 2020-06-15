@@ -25,7 +25,7 @@ if (isset($_POST['nome'])) {
     if (empty($informacao) || $informacao["ID"] == $userId) {
         $alterar = "UPDATE usuario SET Nome='{$nome}', Email='{$usuario}',Senha='{$senha}',Telefone='{$telefone}',Estado='{$estado}',Cidade='{$cidade}',Bairro='{$bairro}',Rua='{$rua}' WHERE ID = '{$userId}'";
         $query = mysqli_query($connection, $alterar);
-    } else { 
+    } else {
         $mensagem = 'já existe um usuário com este email cadastrado';
-    } 
+    }
 }

@@ -942,6 +942,12 @@ header .logout_link {
   padding: 10px;
 }
 
+.item_vitrine .remover {
+  padding: 10px;
+  display: block;
+  color: #dd4f4f;
+}
+
 .meu-perfil .title_section {
   font-size: 3rem;
 }

@@ -18,6 +18,7 @@ get_header();
                             </figure>
                             <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                         </a>
+                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>);" class="remover">Remover animal</a>
                     </article>
                 <?php
                     $i++;
@@ -40,13 +41,25 @@ get_header();
                     <input type="text" name="cidade" id="cidade" placeholder="cidade" required value="<?php echo $_SESSION["cidade"]; ?>">
                     <input type="text" name="bairro" id="bairro" placeholder="bairro" required value="<?php echo $_SESSION["bairro"]; ?>">
                     <input type="text" name="rua" id="rua" placeholder="rua" required value="<?php echo $_SESSION["rua"]; ?>">
-                    <?php if(isset($mensagem)) echo '<p class="text-center">'.$mensagem.'</p>'; ?>
+                    <?php if (isset($mensagem)) echo '<p class="text-center">' . $mensagem . '</p>'; ?>
                     <input type="submit" value="Salvar alterações" class="btn btn--green">
                 </form>
             </div>
         </section>
     </div>
 </div>
+
+<script>
+    function removerAnimal(id) {
+        $.ajax({
+            url: "<?php echo get_template_directory_uri(); ?>/controller/control-remover-animal.php?animal=" + id,
+        }).done(function() {
+            console.log('já era');
+            location.reload();
+        });
+    }
+</script>
+
 <?php
 get_footer();
 ?>
