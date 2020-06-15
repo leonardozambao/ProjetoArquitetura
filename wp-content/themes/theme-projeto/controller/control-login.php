@@ -25,6 +25,13 @@ if (isset($_POST['usuario'])) {
     } else {
         $_SESSION["usuario"] = $informacao["Nome"];
         $_SESSION["usuarioID"] = $informacao["ID"];
+        $_SESSION["email"] = $informacao["Email"];
+        $_SESSION["senha"] = $informacao["Senha"];
+        $_SESSION["telefone"] = $informacao["Telefone"];
+        $_SESSION["estado"] = $informacao["Estado"];
+        $_SESSION["cidade"] = $informacao["Cidade"];
+        $_SESSION["bairro"] = $informacao["Bairro"];
+        $_SESSION["rua"] = $informacao["Rua"];
         $redirect = new Redirect();
         $redirect->RedirectToHome();
     }

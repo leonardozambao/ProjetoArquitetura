@@ -635,7 +635,7 @@ textarea::placeholder {
           box-shadow: 0px 1px 7px #00000040;
 }
 
-header, header *, .header_nav li a::after {
+header, header *, .header_nav li a::after, .item_vitrine img {
   -webkit-transition: all 400ms ease;
   transition: all 400ms ease;
 }
@@ -905,6 +905,8 @@ header .logout_link {
 .item_vitrine {
   width: calc(33% - 20px);
   margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .item_vitrine + .item_vitrine {
@@ -913,6 +915,76 @@ header .logout_link {
 
 .item_vitrine:nth-child(3n+4) {
   margin-left: 0;
+}
+
+.item_vitrine.item_double {
+  width: calc(50% - 20px);
+}
+
+.item_vitrine.item_double:nth-child(2n+3) {
+  margin-left: 0;
+}
+
+.item_vitrine figure {
+  overflow: hidden;
+}
+
+.item_vitrine img {
+  width: 100%;
+  height: 166px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+.item_vitrine .item_name {
+  font-size: 2.4rem;
+  padding: 10px;
+}
+
+.meu-perfil .title_section {
+  font-size: 3rem;
+}
+
+.meu-perfil section {
+  width: 50%;
+}
+
+.meu-perfil section.meus-dados {
+  padding-left: 40px;
+}
+
+.box_login input {
+  border: solid 1px #555555;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.box_login input::-webkit-input-placeholder {
+  font-weight: 400;
+}
+
+.box_login input:-ms-input-placeholder {
+  font-weight: 400;
+}
+
+.box_login input::-ms-input-placeholder {
+  font-weight: 400;
+}
+
+.box_login input::placeholder {
+  font-weight: 400;
+}
+
+.box_login .btn {
+  border: 0;
+  margin: 0 auto 20px;
+  padding: 1rem 2.8rem;
+}
+
+.box_login p {
+  margin-bottom: 15px;
 }
 
 .breadcrumb {
@@ -945,6 +1017,10 @@ header .logout_link {
   .header_logo:hover {
     -webkit-animation: heartBeat 500ms infinite;
             animation: heartBeat 500ms infinite;
+  }
+  .item_vitrine:hover img {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
   }
 }
 /*# sourceMappingURL=style.css.map */

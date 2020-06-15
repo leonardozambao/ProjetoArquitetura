@@ -1,5 +1,4 @@
 <?php
-
 require_once get_template_directory() . '/database/Conect.php';
 include get_template_directory() . '/class/Redirect.php';
 session_start();
@@ -32,11 +31,10 @@ if (isset($_POST['usuario'])) {
         $query = mysqli_query($connection, $cadastrar);
         if (!$query) {
             die('erro no banco de dados, não foi possível inserir os dados');
-        } else {
-            $_SESSION["usuario"] = $informacao["Nome"];
-            $_SESSION["usuarioID"] = $informacao["ID"];
-            $redirect = new Redirect();
-            $redirect->RedirectToHome();
         }
+        $_SESSION["usuario"] = $informacao["Nome"];
+        $_SESSION["usuarioID"] = $informacao["ID"];
+        $redirect = new Redirect();
+        $redirect->RedirectToHome();
     }
 }

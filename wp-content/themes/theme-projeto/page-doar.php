@@ -12,6 +12,7 @@ require_once('controller/control-doar.php');
 <section class="form form_doacao">
     <div class="container">
         <p class="text-center text_disclaimer">Preencha o formulário abaixo com os dados do seu pet para listar ele em nosso site</p>
+        <?php if(isset($mensagem)) echo '<p class="sucess">' . $mensagem . '</p>'; ?>
         <form class="box_form" id="form_doacao" method="POST" action="<?php echo $url; ?>" enctype="multipart/form-data">
             <label for="" class="full">
                 Nome do animal: *
@@ -37,12 +38,8 @@ require_once('controller/control-doar.php');
                 <input type="number" name="idade" id="idade" min="0" max="150">
             </label>
             <label for="" class="full">
-                Cor:
-                <input type="text" name="cor" id="cor">
-            </label>
-            <label for="" class="full">
                 Foto:
-                <input type="file" name="foto" id="foto" accept=".png, .jpg, .jpeg, .svg">
+                <input type="file" name="foto" id="foto" accept=".png, .jpg, .jpeg, .svg, .webp">
             </label>
             <label for="" class="full">
                 Documentação:

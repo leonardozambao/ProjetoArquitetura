@@ -2,30 +2,47 @@
 require_once('controller/control-meu-perfil.php');
 get_header();
 ?>
-<div class="container">
+<div class="container meu-perfil">
     <div class="flex">
         <section class="meus-animais">
-            <h2>Meus animais cadastrados</h2>
+            <h2 class="title_section">Meus animais cadastrados</h2>
             <div class="flex-wrap list_vitrine">
                 <?php
                 $i = 0;
                 while ($registro = mysqli_fetch_assoc($animais)) {
                 ?>
-                    <article class="item_vitrine">
+                    <article class="item_vitrine item_double">
                         <a href="<?php echo get_site_url(); ?>/detalhe?id=<?php echo $registro['ID']; ?>">
                             <figure>
-                                <img src="" alt="">
+                                <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="">
                             </figure>
-                            <h2><?php echo $registro["Nome"]; ?></h2>
+                            <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                         </a>
                     </article>
                 <?php
                     $i++;
                 }
-                if ($i == 0) {
-                    echo '<h2 class="text-center">Nenhum animado encontrado com esses parâmetros</h2>';
-                }
-                ?>
+                if ($i == 0) { ?>
+                    <p>Você ainda não tem nenhum animal cadastrado em nosso site</p>
+                    <a href="<?php echo get_site_url(); ?>/doar" class="cadastre">Cadastre clicando aqui</a>
+                <?php } ?>
+            </div>
+        </section>
+        <section class="meus-dados">
+            <h2 class="title_section">Meus dados</h2>
+            <div class="box_login cadastro">
+                <form action="<?php echo $url; ?>" method="POST" class="flex-column">
+                    <input type="text" name="nome" id="nome" placeholder="nome" required value="<?php echo $_SESSION["usuario"]; ?>">
+                    <input type="email" name="usuario" id="usuario" placeholder="e-mail" required value="<?php echo $_SESSION["email"]; ?>">
+                    <input type="password" name="senha" id="senha" placeholder="senha" required value="<?php echo $_SESSION["senha"]; ?>">
+                    <input type="tel" name="telefone" id="telefone" placeholder="telefone" required value="<?php echo $_SESSION["telefone"]; ?>">
+                    <input type="text" name="estado" id="estado" placeholder="estado" required value="<?php echo $_SESSION["estado"]; ?>">
+                    <input type="text" name="cidade" id="cidade" placeholder="cidade" required value="<?php echo $_SESSION["cidade"]; ?>">
+                    <input type="text" name="bairro" id="bairro" placeholder="bairro" required value="<?php echo $_SESSION["bairro"]; ?>">
+                    <input type="text" name="rua" id="rua" placeholder="rua" required value="<?php echo $_SESSION["rua"]; ?>">
+                    <?php if(isset($mensagem)) echo '<p class="text-center">'.$mensagem.'</p>'; ?>
+                    <input type="submit" value="Salvar alterações" class="btn btn--green">
+                </form>
             </div>
         </section>
     </div>

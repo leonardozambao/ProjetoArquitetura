@@ -4,7 +4,7 @@
         <p class="text-center">© <?php echo date("Y"); ?> - Lorem Ipsum</p>
     </div>
 </footer>
-<?php wp_footer();  ?>
+<?php   ?>
 <style>
     html{margin-top: 0!important;}
     #wpadminbar{display: none}

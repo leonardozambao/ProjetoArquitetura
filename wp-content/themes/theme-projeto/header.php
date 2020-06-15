@@ -23,7 +23,7 @@ require_once('controller/control-header.php');
     <script src="<?php echo get_template_directory_uri(); ?>/js/chlebalize.js"></script>
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/style.css">
 
-    <?php wp_head(); ?>
+    <?php ?>
 </head>
 
 <body <?php echo body_class(); ?>>

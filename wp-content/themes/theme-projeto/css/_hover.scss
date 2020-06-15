@@ -13,3 +13,8 @@
 .header_logo:hover{
     animation: heartBeat 500ms infinite;
 }
+.item_vitrine:hover{
+    img{
+        transform: scale(1.2);
+    }
+}
