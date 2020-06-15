@@ -6,6 +6,7 @@ get_header();
     <div class="flex">
         <section class="meus-animais">
             <h2 class="title_section">Meus animais cadastrados</h2>
+            <p>Remova ou visualize os animais que você cadastrou em nosso site (lembre-se de remover após fechar negócio com outro usuário)</p>
             <div class="flex-wrap list_vitrine">
                 <?php
                 $i = 0;
@@ -18,7 +19,7 @@ get_header();
                             </figure>
                             <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                         </a>
-                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>);" class="remover">Remover animal</a>
+                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>);" class="remover" title="Remover animal da listagem">Remover animal</a>
                     </article>
                 <?php
                     $i++;
@@ -31,6 +32,7 @@ get_header();
         </section>
         <section class="meus-dados">
             <h2 class="title_section">Meus dados</h2>
+            <p>Mantenha seus dados atualizados, os interessados usarão eles para entrar em contato com você</p>
             <div class="box_login cadastro">
                 <form action="<?php echo $url; ?>" method="POST" class="flex-column">
                     <input type="text" name="nome" id="nome" placeholder="nome" required value="<?php echo $_SESSION["usuario"]; ?>">

@@ -1,18 +1,6 @@
 <?php
 get_header();
-
-require_once("database/Conect.php");
-$filter = '';
-$filter = $_GET['filter'];
-if ($filter != '') {
-    $consulta = "SELECT * FROM animais WHERE Espécie = '" . $filter . "'";
-} else {
-    $consulta = "SELECT * FROM animais";
-}
-$animais = mysqli_query($connection, $consulta);
-$filter = $_GET['filter'];
-$postUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
+require_once('controller/control-adotar.php');
 ?>
 <section class="banner_page">
     <h1 class="title_banner text-center">
@@ -25,8 +13,13 @@ $postUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         <div class="">
             <div class="filter flex-column">
                 <span>Ou filtre por categoria</span>
-                <div class="custom_select" :class="expandido ? '' : 'expanded'" :title="expandido ? 'Clique para mostrar mais' : ''" v-on:click="toggleFilter">
-                    <a href="" class="act">Todos</a>
+                <div class="flex">
+                    <a href="<?php echo get_site_url().'/adotar' ?>" class="act">Todos</a>
+                    <a href="<?php echo get_site_url().'/adotar?filter=cachorro' ?>" class="act">Cachorros</a>
+                    <a href="<?php echo get_site_url().'/adotar?filter=gato' ?>" class="act">Gatos</a>
+                    <a href="<?php echo get_site_url().'/adotar?filter=passaro' ?>" class="act">Pássaros</a>
+                    <a href="<?php echo get_site_url().'/adotar?filter=coelho' ?>" class="act">Coelhos</a>
+                    <a href="<?php echo get_site_url().'/adotar?filter=outro' ?>" class="act">Outros</a>
                 </div>
             </div>
         </div>
@@ -38,9 +31,9 @@ $postUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
                 <article class="item_vitrine">
                     <a href="<?php echo get_site_url(); ?>/detalhe?id=<?php echo $registro['ID']; ?>">
                         <figure>
-                            <img src="" alt="">
+                            <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="">
                         </figure>
-                        <h2><?php echo $registro["Nome"]; ?></h2>
+                        <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                     </a>
                 </article>
             <?php
@@ -53,22 +46,6 @@ $postUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         </div>
     </div>
 </section>
-
-<script>
-    var vitrine = new Vue({
-        el: '#vitrine',
-        data: {
-            posts: [],
-            expandido: true,
-        },
-        methods: {
-            toggleFilter() {
-                this.expandido = !this.expandido;
-            }
-        },
-
-    })
-</script>
 
 <?php
 get_footer();
