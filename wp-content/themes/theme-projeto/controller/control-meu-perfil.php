@@ -7,6 +7,9 @@ require_once get_template_directory() . '/database/Conect.php';
 $consulta = "SELECT * FROM animais WHERE UsuarioID = '" . $userId . "'";
 $animais = mysqli_query($connection, $consulta);
 
+$consulta2 = "SELECT * FROM emergencia WHERE UsuarioID = '" . $userId . "'";
+$animais2 = mysqli_query($connection, $consulta2);
+
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 if (isset($_POST['nome'])) {

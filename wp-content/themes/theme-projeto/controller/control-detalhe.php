@@ -1,8 +1,11 @@
 <?php
 require_once get_template_directory() . '/database/Conect.php';
 if (isset($_GET['id'])) {
+    $type ='animais';
+    if(isset($_GET['type'])) $type = 'emergencia';
+    
     $animalId = $_GET['id'];
-    $consulta = "SELECT * FROM animais WHERE ID = '" . $animalId . "'";
+    $consulta = "SELECT * FROM ".$type." WHERE ID = '" . $animalId . "'";
     $animais = mysqli_query($connection, $consulta);
     $registro = mysqli_fetch_assoc($animais);
 

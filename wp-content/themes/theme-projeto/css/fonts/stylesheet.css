@@ -38,6 +38,7 @@
          url('fonts/BebasNeue-webfont.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: 'Bebas Neue';
@@ -46,6 +47,7 @@
          url('fonts/bebas-neue-book-webfont.woff') format('woff');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 
 }
 @font-face {
@@ -54,4 +56,5 @@
     src: url('fonts/Bebas-Neue-Light.ttf.woff') format('woff2');
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }

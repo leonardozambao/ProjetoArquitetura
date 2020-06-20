@@ -19,7 +19,7 @@ get_header();
                             </figure>
                             <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                         </a>
-                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>);" class="remover" title="Remover animal da listagem">Remover animal</a>
+                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>, 'animais');" class="remover" title="Remover animal da listagem">Remover animal</a>
                     </article>
                 <?php
                     $i++;
@@ -27,6 +27,29 @@ get_header();
                 if ($i == 0) { ?>
                     <p>Você ainda não tem nenhum animal cadastrado em nosso site</p>
                     <a href="<?php echo get_site_url(); ?>/doar" class="cadastre">Cadastre clicando aqui</a>
+                <?php } ?>
+            </div>
+            <h2 class="title_section">Meus animais em emergência</h2>
+            <p>Remova ou visualize os animais em situação de emergência que você cadastrou em nosso site (lembre-se de remover após ter a emergência resolvida)</p>
+            <div class="flex-wrap list_vitrine">
+                <?php
+                $i = 0;
+                while ($registro = mysqli_fetch_assoc($animais2)) {
+                ?>
+                    <article class="item_vitrine item_double">
+                        <a href="<?php echo get_site_url(); ?>/detalhe?id=<?php echo $registro['ID']; ?>">
+                            <figure>
+                                <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="">
+                            </figure>
+                            <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
+                        </a>
+                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>, 'emergencia');" class="remover" title="Remover animal da listagem">Remover animal</a>
+                    </article>
+                <?php
+                    $i++;
+                }
+                if ($i == 0) { ?>
+                    <p>Você não tem nenhum animal em situação de emergência</p>
                 <?php } ?>
             </div>
         </section>
@@ -52,9 +75,9 @@ get_header();
 </div>
 
 <script>
-    function removerAnimal(id) {
+    function removerAnimal(id, type) {
         $.ajax({
-            url: "<?php echo get_template_directory_uri(); ?>/controller/control-remover-animal.php?animal=" + id,
+            url: "<?php echo get_template_directory_uri(); ?>/controller/control-remover-animal.php?type=" + type + "&animal=" + id,
         }).done(function() {
             console.log('já era');
             location.reload();

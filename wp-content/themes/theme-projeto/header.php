@@ -49,8 +49,8 @@ require_once('controller/control-header.php');
                     <ul class="flex-center">
                         <li><a href="<?php echo get_site_url(); ?>/doar">Doar</a></li>
                         <li><a href="<?php echo get_site_url(); ?>/adotar">Adotar</a></li>
-                        <li><a href="<?php echo get_site_url(); ?>/quem-somos">Quem Somos</a></li>
-                        <li><a href="<?php echo get_site_url(); ?>/contato">Contato</a></li>
+                        <li><a href="<?php echo get_site_url(); ?>/emergencia">Tenho Emergência</a></li>
+                        <li><a href="<?php echo get_site_url(); ?>/animais-em-emergencia">Ver animais em emergência</a></li>
                     </ul>
                 </nav>
                 <div class="flex-column flex-align-center">

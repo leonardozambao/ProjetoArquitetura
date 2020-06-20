@@ -4,8 +4,9 @@ include '../../../../wp-load.php';
 require_once get_template_directory() . '/database/Conect.php';
 $animal = $_GET['animal'];
 $userId = $_SESSION["usuarioID"];
+$type = $_GET['type'];
 
-$remover = "DELETE FROM animais WHERE ID = '{$animal}' AND UsuarioID = '{$userId}'";
+$remover = "DELETE FROM {$type} WHERE ID = '{$animal}' AND UsuarioID = '{$userId}'";
 
 if (mysqli_query($connection, $remover)) {
     echo "Record deleted successfully";
