@@ -27,18 +27,21 @@ require_once('controller/control-cadastrar.php');
                 </div>
                 <div class="row flex-between">
                     <input type="password" name="senha" id="senha" placeholder="senha" required>
+                    <input type="text" name="rede-social" id="rede-social" placeholder="link rede social" required>
+                </div>
+                <div class="row flex-between">
                     <input type="tel" name="telefone" id="telefone" placeholder="telefone" required>
-                </div>
-                <div class="row flex-between">
                     <input type="text" name="cep" id="cep" placeholder="CEP" onblur="pesquisacep(this.value);">
-                    <input type="text" name="estado" id="estado" placeholder="estado" required>
                 </div>
                 <div class="row flex-between">
+                    <input type="text" name="estado" id="estado" placeholder="estado" required>
                     <input type="text" name="cidade" id="cidade" placeholder="cidade" required>
-                    <input type="text" name="bairro" id="bairro" placeholder="bairro" required>
                 </div>
-                <input type="text" name="rua" id="rua" placeholder="rua" required>
-                <?php if (isset($mensagem)) echo '<span>'.$mensagem.'</span>'; ?>
+                <div class="row flex-between">
+                    <input type="text" name="bairro" id="bairro" placeholder="bairro" required>
+                    <input type="text" name="rua" id="rua" placeholder="rua" required>
+                </div>
+                <?php if (isset($mensagem)) echo '<span>' . $mensagem . '</span>'; ?>
                 <input type="submit" value="Cadastrar" class="btn">
                 <a class="text-center sem-conta" href="<?php echo get_site_url(); ?>/login">Já tenho uma conta</a>
             </form>
@@ -46,10 +49,11 @@ require_once('controller/control-cadastrar.php');
     </section>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('#cep').mask('00000-000');
             $('#telefone').mask('(00) 00000-0000');
         })
+
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('rua').value = ("");

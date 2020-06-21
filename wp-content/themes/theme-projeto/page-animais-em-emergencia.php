@@ -31,7 +31,7 @@ require_once('controller/control-animais-em-emergencia.php');
                 <article class="item_vitrine">
                     <a href="<?php echo get_site_url(); ?>/detalhe?type=emergencia&id=<?php echo $registro['ID']; ?>">
                         <figure>
-                            <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="">
+                            <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="<?php echo $registro["Nome"]; ?>">
                         </figure>
                         <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                     </a>

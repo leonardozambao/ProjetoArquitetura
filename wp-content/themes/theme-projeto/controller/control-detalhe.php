@@ -13,6 +13,12 @@ if (isset($_GET['id'])) {
     $consultaDono = "SELECT * FROM usuario WHERE ID = '" . $donoId . "'";
     $usuario = mysqli_query($connection, $consultaDono);
     $registroDono = mysqli_fetch_assoc($usuario);
+
+    $numeroLimpo = $registroDono["Telefone"];
+    $numeroLimpo = str_replace("(","", $numeroLimpo);
+    $numeroLimpo = str_replace(")","", $numeroLimpo);
+    $numeroLimpo = str_replace("-","", $numeroLimpo);
+    $numeroLimpo = str_replace(" ","", $numeroLimpo);
     
 } else {
     include get_template_directory() . '/class/Redirect.php';

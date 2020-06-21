@@ -32,6 +32,7 @@ if (isset($_POST['usuario'])) {
         $_SESSION["cidade"] = $informacao["Cidade"];
         $_SESSION["bairro"] = $informacao["Bairro"];
         $_SESSION["rua"] = $informacao["Rua"];
+        $_SESSION["rede-social"] = $informacao["RedeSocial"];
         $redirect = new Redirect();
         $redirect->RedirectToHome();
     }

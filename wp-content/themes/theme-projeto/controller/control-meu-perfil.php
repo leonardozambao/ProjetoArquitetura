@@ -16,6 +16,7 @@ if (isset($_POST['nome'])) {
     $usuario = $_POST['usuario'];
     $nome = $_POST['nome'];
     $senha = $_POST['senha'];
+    $redeSocial = $_POST['rede-social'];
     $telefone = $_POST['telefone'];
     $estado = $_POST['estado'];
     $cidade = $_POST['cidade'];
@@ -26,11 +27,12 @@ if (isset($_POST['nome'])) {
     $acesso = mysqli_query($connection, $verificacao);
     $informacao = mysqli_fetch_assoc($acesso);
     if (empty($informacao) || $informacao["ID"] == $userId) {
-        $alterar = "UPDATE usuario SET Nome='{$nome}', Email='{$usuario}',Senha='{$senha}',Telefone='{$telefone}',Estado='{$estado}',Cidade='{$cidade}',Bairro='{$bairro}',Rua='{$rua}' WHERE ID = '{$userId}'";
+        $alterar = "UPDATE usuario SET Nome='{$nome}', Email='{$usuario}',Senha='{$senha}',RedeSocial='{$redeSocial}',Telefone='{$telefone}',Estado='{$estado}',Cidade='{$cidade}',Bairro='{$bairro}',Rua='{$rua}' WHERE ID = '{$userId}'";
         $query = mysqli_query($connection, $alterar);
         $_SESSION["usuario"] = $nome;
         $_SESSION["email"] = $usuario;
         $_SESSION["senha"] = $senha;
+        $_SESSION["rede-social"] = $redeSocial;
         $_SESSION["telefone"] = $telefone;
         $_SESSION["estado"] = $estado;
         $_SESSION["cidade"] = $cidade;

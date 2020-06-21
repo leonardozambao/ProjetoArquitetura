@@ -61,6 +61,7 @@ get_header();
                     <input type="text" name="nome" id="nome" placeholder="nome" required value="<?php echo $_SESSION["usuario"]; ?>">
                     <input type="email" name="usuario" id="usuario" placeholder="e-mail" required value="<?php echo $_SESSION["email"]; ?>">
                     <input type="password" name="senha" id="senha" placeholder="senha" required value="<?php echo $_SESSION["senha"]; ?>">
+                    <input type="text" name="rede-social" id="rede-social" placeholder="link rede social" value="<?php echo $_SESSION["rede-social"]; ?>">
                     <input type="tel" name="telefone" id="telefone" placeholder="telefone" required value="<?php echo $_SESSION["telefone"]; ?>">
                     <input type="text" name="estado" id="estado" placeholder="estado" required value="<?php echo $_SESSION["estado"]; ?>">
                     <input type="text" name="cidade" id="cidade" placeholder="cidade" required value="<?php echo $_SESSION["cidade"]; ?>">

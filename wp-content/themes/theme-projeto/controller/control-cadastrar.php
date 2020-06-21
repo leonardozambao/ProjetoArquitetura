@@ -20,14 +20,15 @@ if (isset($_POST['usuario'])) {
     } else {
         $nome = $_POST['nome'];
         $senha = $_POST['senha'];
+        $redeSocial = $_POST['rede-social'];
         $telefone = $_POST['telefone'];
         $estado = $_POST['estado'];
         $cidade = $_POST['cidade'];
         $bairro = $_POST['bairro'];
         $rua = $_POST['rua'];
 
-        $cadastrar = "INSERT INTO usuario (Nome, Email, Senha, Telefone, Cidade, Estado, Bairro, Rua)";
-        $cadastrar .= "VALUES ('{$nome}', '{$usuario}', '{$senha}', '{$telefone}', '{$cidade}', '{$estado}', '{$bairro}', '{$rua}')";
+        $cadastrar = "INSERT INTO usuario (Nome, Email, Senha, RedeSocial,Telefone, Cidade, Estado, Bairro, Rua)";
+        $cadastrar .= "VALUES ('{$nome}', '{$usuario}', '{$senha}', '{$redeSocial}', '{$telefone}', '{$cidade}', '{$estado}', '{$bairro}', '{$rua}')";
         $query = mysqli_query($connection, $cadastrar);
         if (!$query) {
             die('erro no banco de dados, não foi possível inserir os dados');
