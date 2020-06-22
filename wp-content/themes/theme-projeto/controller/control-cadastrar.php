@@ -1,7 +1,8 @@
 <?php
-require_once get_template_directory() . '/database/Conect.php';
-include get_template_directory() . '/class/Redirect.php';
 session_start();
+require get_template_directory() . '/class/Pessoa.php';
+require get_template_directory() . '/database/Conect.php';
+$pessoa = new Pessoa();
 
 $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 if (isset($_SESSION['usuario'])) {
@@ -27,15 +28,6 @@ if (isset($_POST['usuario'])) {
         $bairro = $_POST['bairro'];
         $rua = $_POST['rua'];
 
-        $cadastrar = "INSERT INTO usuario (Nome, Email, Senha, RedeSocial,Telefone, Cidade, Estado, Bairro, Rua)";
-        $cadastrar .= "VALUES ('{$nome}', '{$usuario}', '{$senha}', '{$redeSocial}', '{$telefone}', '{$cidade}', '{$estado}', '{$bairro}', '{$rua}')";
-        $query = mysqli_query($connection, $cadastrar);
-        if (!$query) {
-            die('erro no banco de dados, não foi possível inserir os dados');
-        }
-        $_SESSION["usuario"] = $informacao["Nome"];
-        $_SESSION["usuarioID"] = $informacao["ID"];
-        $redirect = new Redirect();
-        $redirect->RedirectToHome();
+       $pessoa->CadastrarUsuario($nome,$usuario,$senha,$redeSocial,$telefone,$estado,$cidade,$bairro,$rua);
     }
 }

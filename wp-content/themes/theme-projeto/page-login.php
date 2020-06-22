@@ -27,6 +27,15 @@ require_once('controller/control-login.php');
             </form>
         </div>
     </section>
+    <?php 
+    if(isset($_GET['newcadastro'])){
+        ?>
+        <script>
+            alert("Conta criada com sucesso! faça seu login");
+        </script>
+        <?php
+    }
+    ?>
 </body>
 
 </html>

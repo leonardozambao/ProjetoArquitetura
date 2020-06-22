@@ -1,37 +1,20 @@
-<?php 
-class Animal{
-    protected $nome;
-    protected $especie;
-    protected $raca;
-    protected $idade;
-    protected $cor;
-    protected $foto;
-    protected $documentacao;
-    
-    public function __construct()
+<?php
+class Animal
+{
+    function CadastraAnimal($nome, $especie, $raca, $idade, $descricao, $pathFoto, $pathDocumento, $userId)
     {
+        require get_template_directory() . '/database/Conect.php';
+        require get_template_directory() . '/class/Redirect.php';
 
-    }
+        $inserir = "INSERT INTO animais (Nome,Especie,Raca,Idade,Descricao,Foto,Documentos,UsuarioID) ";
+        $inserir .= "VALUES ('" . $nome . "','" . $especie . "','" . $raca . "','" . $idade . "','" . $descricao . "','" . $pathFoto . "','" . $pathDocumento . "','" . $userId . "')";
 
-    public function setNome($nome){
-        $this->nome = $nome;
+        $query = mysqli_query($connection, $inserir);
+        if (!$query) {
+            die('erro no banco de dados, não foi possível inserir os dados');
+        }
+        $redirect = new Redirect();
+        $redirect->RedirectToTarget('meu-perfil');
     }
-    public function getNome(){
-        return $this->nome;
-    }
-
-    public function setEspecie($especie){
-        $this->especie = $especie;
-    }
-    public function getEspecie(){
-        return $this->especie;
-    }
-
-    public function setRaca($raca){
-        $this->raca = $raca;
-    }
-    public function getRaca(){
-        return $this->raca;
-    }
-
 }
+?>

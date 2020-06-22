@@ -37,14 +37,13 @@ get_header();
                 while ($registro = mysqli_fetch_assoc($animais2)) {
                 ?>
                     <article class="item_vitrine item_double">
-                        <a href="<?php echo get_site_url(); ?>/detalhe?id=<?php echo $registro['ID']; ?>">
-                            <figure>
-                                <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="">
-                            </figure>
-                            <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
-                        </a>
-                        <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>, 'emergencia');" class="remover" title="Remover animal da listagem">Remover animal</a>
-                    </article>
+                    <a href="<?php echo get_site_url(); ?>/detalhe?type=emergencia&id=<?php echo $registro['ID']; ?>">
+                        <figure>
+                            <img src="<?php echo get_site_url() . '/' . $registro['Foto'] ?>" alt="<?php echo $registro["Nome"]; ?>">
+                        </figure>
+                        <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
+                    </a>
+                </article>
                 <?php
                     $i++;
                 }

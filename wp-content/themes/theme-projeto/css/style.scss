@@ -1,6 +1,4 @@
 @import url('fonts/stylesheet.css');
-@import url('slick.css');
-@import url('slick-theme.css');
 @import '_chlebalize.scss';
 @import '_variables.scss';
 @import '_mixins.scss';
@@ -50,7 +48,7 @@ header{
         text-decoration: underline;
     }
 }
-.header_line{
+.header_line{ 
     background-color: $dark-green;
     padding: 7px 0;
     a{
@@ -305,9 +303,6 @@ header{
     h2{
         font-size: 3rem;
         margin-bottom: 20px;
-    }
-    .ver-todos{
-        
     }
 }
 
