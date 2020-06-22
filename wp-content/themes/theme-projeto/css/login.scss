@@ -72,3 +72,20 @@ html{
         text-decoration: underline;
     }
 }
+
+@media screen and (max-width: 860px){
+    .login{
+        .banner{
+            position: fixed;
+        }
+        .box_login.cadastro{
+            height: 100%;
+            overflow: auto;
+            .row{
+                input{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

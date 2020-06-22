@@ -28,7 +28,7 @@ require_once('controller/control-header.php');
 
 <body <?php echo body_class(); ?>>
     <header class="">
-        <div class="header_line">
+        <div class="header_line only-desktop">
             <div class="container flex-between">
                 <a href="">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/ico-email.svg" alt="E-mail">
@@ -45,7 +45,7 @@ require_once('controller/control-header.php');
                 <a href="<?php echo get_site_url(); ?>">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php echo get_bloginfo('name'); ?>" class="header_logo">
                 </a>
-                <nav class="header_nav">
+                <nav class="header_nav only-desktop">
                     <ul class="flex-center">
                         <li><a href="<?php echo get_site_url(); ?>/doar">Doar</a></li>
                         <li><a href="<?php echo get_site_url(); ?>/adotar">Adotar</a></li>
@@ -53,12 +53,17 @@ require_once('controller/control-header.php');
                         <li><a href="<?php echo get_site_url(); ?>/animais-em-emergencia">Ver animais em emergência</a></li>
                     </ul>
                 </nav>
-                <div class="flex-column flex-align-center">
+                <div class="flex-column flex-align-center only-desktop user">
                     <a href="<?php echo get_site_url(); ?>/meu-perfil" class="btn btn--green" title="Visualizar meu perfil">
                         Olá, <?php echo $primeiroNome[0]; ?>
                     </a>
                     <a href="javascript:void(0);" onclick="logout();" class="logout_link">Logout</a>
                 </div>
+                <a href="javascript:void(0);" class="menu-button only-mobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
             </div>
         </section>
     </header>

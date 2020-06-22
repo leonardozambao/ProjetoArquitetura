@@ -1068,4 +1068,79 @@ header .logout_link {
     color: #749F03;
   }
 }
+
+@media screen and (max-width: 860px) {
+  body {
+    padding-top: 0;
+  }
+  .menu-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .menu-button span {
+    background-color: #749F03;
+  }
+  .menu-button span:nth-child(2)::before, .menu-button span:nth-child(2)::after {
+    background-color: #749F03;
+  }
+  header {
+    position: static;
+  }
+  header .header_logo {
+    width: 80px;
+  }
+  header.menu-opened {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    -webkit-transform: translate(0, 0) !important;
+            transform: translate(0, 0) !important;
+  }
+  header.menu-opened .header_nav {
+    display: block;
+  }
+  header.menu-opened .header_nav ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header.menu-opened .header_nav ul li + li {
+    border-left: 0;
+    margin-top: 10px;
+  }
+  header.menu-opened .header_nav ul li a {
+    font-weight: 700;
+    font-size: 2.4rem;
+  }
+  header.menu-opened .user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+  }
+  .item_vitrine {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  .vitrine {
+    padding: 20px 0;
+  }
+  .banner_page .title_banner {
+    font-size: 4.3rem;
+    width: 100%;
+  }
+  .meu-perfil section {
+    width: 100%;
+  }
+  .meu-perfil section.meus-dados {
+    padding-left: 0;
+  }
+}
 /*# sourceMappingURL=style.css.map */

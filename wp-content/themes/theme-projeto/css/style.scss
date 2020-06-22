@@ -309,3 +309,76 @@ header{
 @media screen and (min-width: 861px){
     @import '_hover.scss';
 }
+@media screen and (max-width: 860px){
+    body{
+        padding-top: 0;
+    }
+    .menu-button{
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        span{
+            background-color:$dark-green;
+            &:nth-child(2)::before,
+            &:nth-child(2)::after{
+                background-color: $dark-green;
+            }
+        }
+    }
+    header{
+        position: static;
+        .header_logo{
+            width: 80px;
+        }
+        &.menu-opened{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            transform: translate(0,0)!important;
+            .header_nav{
+                display: block;
+                ul{
+                    flex-direction: column;
+                    align-items: center;
+                    li + li{
+                        border-left: 0;
+                        margin-top: 10px;
+                    }
+                    li{
+                        a{
+                            font-weight: 700;
+                            font-size: 2.4rem;
+                        }
+                    }
+                }
+            }
+            .user{
+                display: flex;
+                margin-top: 30px;
+                width: 100%;
+            }
+        }
+    }
+    .item_vitrine{
+        width: 100%!important;
+        margin-left: 0!important;
+    }
+    .vitrine{
+        padding: 20px 0;
+    }
+    .banner_page{
+        .title_banner{
+            font-size: 4.3rem;
+            width: 100%;
+        }
+    }
+    .meu-perfil{
+        section{
+            width: 100%;
+            &.meus-dados{
+                padding-left: 0;
+            }
+        }
+    }
+}

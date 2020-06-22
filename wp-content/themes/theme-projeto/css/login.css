@@ -730,4 +730,17 @@ html {
   font-size: 1.2rem;
   text-decoration: underline;
 }
+
+@media screen and (max-width: 860px) {
+  .login .banner {
+    position: fixed;
+  }
+  .login .box_login.cadastro {
+    height: 100%;
+    overflow: auto;
+  }
+  .login .box_login.cadastro .row input {
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=login.css.map */
