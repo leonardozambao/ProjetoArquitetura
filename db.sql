@@ -28,42 +28,66 @@ CREATE TABLE IF NOT EXISTS `animais` (
   `Documentos` varchar(150) DEFAULT NULL,
   `UsuarioID` int(11) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela db_projetoarquitetura.animais: ~7 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.animais: ~9 rows (aproximadamente)
 DELETE FROM `animais`;
 /*!40000 ALTER TABLE `animais` DISABLE KEYS */;
 INSERT INTO `animais` (`ID`, `Nome`, `Especie`, `Raca`, `Idade`, `Descricao`, `Foto`, `Documentos`, `UsuarioID`) VALUES
 	(3, 'Bebel', 'cachorro', 'Yorkshire', '4', NULL, 'uploads/foto_2020-165201435.jpg', '', 1),
-	(4, 'Rodolfo', 'coelho', '', '3', NULL, 'uploads/foto_2020-16520494.jpg', '', 2),
 	(5, 'Cacau', 'gato', '', '12', NULL, 'uploads/foto_2020-16523359.jpg', '', 3),
 	(6, 'Pitty', 'cachorro', 'Pitbull', '1', NULL, 'uploads/foto_2020-16602231.webp', '', 1),
-	(7, 'Smeagol', 'gato', '', '3', NULL, 'uploads/foto_2020-1660233.jpg', '', 1),
 	(8, 'Joana', 'outro', '', '6 meses', 'Joana, a iguana', 'uploads/foto_2020-16611623.jpg', 'uploads/documento_2020-16611623.pdf', 1),
-	(9, 'Becky', 'passaro', 'Calopsita', '2', 'teste', 'uploads/foto_2020-16611910.jpg', '', 2);
+	(9, 'Becky', 'passaro', 'Calopsita', '2', 'teste', 'uploads/foto_2020-16611910.jpg', '', 2),
+	(11, 'Lacoste', 'outro', 'Nordestina', '1', 'eh issso', 'uploads/foto_2020-168173255.jpg', '', 2),
+	(12, 'Rodolfo', 'outro', '', '4', 'tá dormindo', 'uploads/foto_2020-17118485.jpg', '', 1),
+	(13, 'Ricky', 'coelho', '', '7 meses', '', 'uploads/foto_2020-17119245.jpg', '', 2),
+	(19, 'Rock', 'cachorro', 'Rottweiler', '11', '', 'uploads/foto_2020-172234350.jpg', '', 3);
 /*!40000 ALTER TABLE `animais` ENABLE KEYS */;
+
+-- Copiando estrutura para tabela db_projetoarquitetura.emergencia
+CREATE TABLE IF NOT EXISTS `emergencia` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(50) DEFAULT NULL,
+  `UsuarioID` int(11) DEFAULT NULL,
+  `Especie` varchar(50) DEFAULT NULL,
+  `Foto` varchar(50) DEFAULT NULL,
+  `Descricao` text DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+-- Copiando dados para a tabela db_projetoarquitetura.emergencia: ~3 rows (aproximadamente)
+DELETE FROM `emergencia`;
+/*!40000 ALTER TABLE `emergencia` DISABLE KEYS */;
+INSERT INTO `emergencia` (`ID`, `Nome`, `UsuarioID`, `Especie`, `Foto`, `Descricao`) VALUES
+	(2, 'Emergenciado', 3, 'gato', 'uploads/foto_2020-171225214.jpg', 'precisa de doação de sangue tipo A!!'),
+	(3, 'Sujo', 1, 'gato', 'uploads/foto_2020-1721953.jpg', 'precisa de transplante de rim'),
+	(4, 'Sofio', 9, 'gato', 'uploads/foto_2020-1731956.jpg', 'precisa de leite doado');
+/*!40000 ALTER TABLE `emergencia` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela db_projetoarquitetura.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(50) DEFAULT NULL,
+  `RedeSocial` varchar(120) DEFAULT NULL,
   `Email` varchar(50) DEFAULT NULL,
   `Senha` varchar(20) DEFAULT NULL,
-  `Telefone` varchar(13) DEFAULT NULL,
+  `Telefone` varchar(16) DEFAULT NULL,
   `Cidade` varchar(30) DEFAULT NULL,
   `Estado` varchar(30) DEFAULT NULL,
   `Bairro` varchar(30) DEFAULT NULL,
   `Rua` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 
--- Copiando dados para a tabela db_projetoarquitetura.usuario: ~3 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.usuario: ~4 rows (aproximadamente)
 DELETE FROM `usuario`;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`ID`, `Nome`, `Email`, `Senha`, `Telefone`, `Cidade`, `Estado`, `Bairro`, `Rua`) VALUES
-	(1, 'Administrador', 'leonardo@chleba.net', 'admin', '(41) 98869-14', 'Curitiba', 'PR', 'Juvevê', 'Avenida João Gualberto, 1259'),
-	(2, 'Leonardo Zambão', 'leonardozambao@live.com', 'admin', '(41) 98869-14', 'Piraquara', 'PR', 'Águas Claras', 'Rua do Botiatuva'),
-	(3, 'Leonardo Zambão', 'leonardozambao1998@gmail.com', 'admin', '(41) 98869-14', 'Curitiba', 'PR', 'Juvevê', 'Avenida João Gualberto, 1259');
+INSERT INTO `usuario` (`ID`, `Nome`, `RedeSocial`, `Email`, `Senha`, `Telefone`, `Cidade`, `Estado`, `Bairro`, `Rua`) VALUES
+	(1, 'Administrador', 'https://github.com/leonardozambao', 'leonardo@chleba.net', 'admin', '(41) 98869-1491', 'Curitiba', 'PR', 'Juvevê', 'Avenida João Gualberto, 1259'),
+	(2, 'Leonardo Zambão', NULL, 'leonardozambao@live.com', 'admin', '(41) 98869-14', 'Piraquara', 'PR', 'Águas Claras', 'Rua do Botiatuva'),
+	(3, 'Zambão', NULL, 'leonardozambao1998@gmail.com', 'admin', '(41) 98869-14', 'Curitiba', 'PR', 'Juvevê', 'Avenida João Gualberto, 1259'),
+	(9, 'Helena', 'facebook.com.br', 'helena@chleba.net', 'admin', '(41) 99886-9149', 'Curitiba', 'PR', 'Juvevê', 'Avenida João Gualberto');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela db_projetoarquitetura.wp_commentmeta
@@ -145,9 +169,9 @@ CREATE TABLE IF NOT EXISTS `wp_options` (
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`),
   KEY `autoload` (`autoload`)
-) ENGINE=InnoDB AUTO_INCREMENT=308 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_options: ~125 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_options: ~130 rows (aproximadamente)
 DELETE FROM `wp_options`;
 /*!40000 ALTER TABLE `wp_options` DISABLE KEYS */;
 INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`) VALUES
@@ -254,7 +278,7 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 	(101, 'widget_archives', 'a:2:{i:2;a:3:{s:5:"title";s:0:"";s:5:"count";i:0;s:8:"dropdown";i:0;}s:12:"_multiwidget";i:1;}', 'yes'),
 	(102, 'widget_meta', 'a:2:{i:2;a:1:{s:5:"title";s:0:"";}s:12:"_multiwidget";i:1;}', 'yes'),
 	(103, 'sidebars_widgets', 'a:2:{s:19:"wp_inactive_widgets";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}s:13:"array_version";i:3;}', 'yes'),
-	(104, 'cron', 'a:8:{i:1592255805;a:1:{s:34:"wp_privacy_delete_old_export_files";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}}i:1592266602;a:1:{s:32:"recovery_mode_clean_expired_keys";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592266605;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1592266632;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592266633;a:1:{s:25:"delete_expired_transients";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592266638;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592353002;a:1:{s:30:"wp_site_health_scheduled_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"weekly";s:4:"args";a:0:{}s:8:"interval";i:604800;}}}s:7:"version";i:2;}', 'yes'),
+	(104, 'cron', 'a:8:{i:1592857005;a:1:{s:34:"wp_privacy_delete_old_export_files";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"hourly";s:4:"args";a:0:{}s:8:"interval";i:3600;}}}i:1592871402;a:1:{s:32:"recovery_mode_clean_expired_keys";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592871405;a:3:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1592871432;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592871433;a:1:{s:25:"delete_expired_transients";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592871438;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1592957802;a:1:{s:30:"wp_site_health_scheduled_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:6:"weekly";s:4:"args";a:0:{}s:8:"interval";i:604800;}}}s:7:"version";i:2;}', 'yes'),
 	(105, 'widget_pages', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 	(106, 'widget_calendar', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
 	(107, 'widget_media_audio', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
@@ -270,12 +294,17 @@ INSERT INTO `wp_options` (`option_id`, `option_name`, `option_value`, `autoload`
 	(144, 'current_theme', 'Projeto Arquitetura', 'yes'),
 	(145, 'theme_mods_theme-projeto', 'a:4:{i:0;b:0;s:18:"nav_menu_locations";a:0:{}s:18:"custom_css_post_id";i:-1;s:16:"sidebars_widgets";a:2:{s:4:"time";i:1590452480;s:4:"data";a:1:{s:19:"wp_inactive_widgets";a:6:{i:0;s:8:"search-2";i:1;s:14:"recent-posts-2";i:2;s:17:"recent-comments-2";i:3;s:10:"archives-2";i:4;s:12:"categories-2";i:5;s:6:"meta-2";}}}}', 'yes'),
 	(146, 'theme_switched', '', 'yes'),
-	(174, '_transient_health-check-site-status-result', '{"good":11,"recommended":5,"critical":1}', 'yes'),
-	(301, '_site_transient_timeout_theme_roots', '1592231576', 'no'),
-	(302, '_site_transient_theme_roots', 'a:1:{s:13:"theme-projeto";s:7:"/themes";}', 'no'),
-	(304, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:3:{i:0;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:6:"locale";s:5:"pt_BR";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"5.4.2";s:7:"version";s:5:"5.4.2";s:11:"php_version";s:6:"5.6.20";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"5.3";s:15:"partial_version";s:0:"";}i:1;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-5.4.2.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-5.4.2.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-5.4.2-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-5.4.2-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-5.4.2-partial-1.zip";s:8:"rollback";b:0;}s:7:"current";s:5:"5.4.2";s:7:"version";s:5:"5.4.2";s:11:"php_version";s:6:"5.6.20";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"5.3";s:15:"partial_version";s:5:"5.4.1";}i:2;O:8:"stdClass":11:{s:8:"response";s:10:"autoupdate";s:8:"download";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:6:"locale";s:5:"pt_BR";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"5.4.2";s:7:"version";s:5:"5.4.2";s:11:"php_version";s:6:"5.6.20";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"5.3";s:15:"partial_version";s:0:"";s:9:"new_files";s:1:"1";}}s:12:"last_checked";i:1592229781;s:15:"version_checked";s:5:"5.4.1";s:12:"translations";a:0:{}}', 'no'),
-	(305, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1592229782;s:7:"checked";a:1:{s:13:"theme-projeto";s:3:"1.0";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'no'),
-	(306, '_site_transient_update_plugins', 'O:8:"stdClass":5:{s:12:"last_checked";i:1592229784;s:7:"checked";a:2:{s:19:"akismet/akismet.php";s:5:"4.1.5";s:9:"hello.php";s:5:"1.7.2";}s:8:"response";a:1:{s:19:"akismet/akismet.php";O:8:"stdClass":12:{s:2:"id";s:21:"w.org/plugins/akismet";s:4:"slug";s:7:"akismet";s:6:"plugin";s:19:"akismet/akismet.php";s:11:"new_version";s:5:"4.1.6";s:3:"url";s:38:"https://wordpress.org/plugins/akismet/";s:7:"package";s:56:"https://downloads.wordpress.org/plugin/akismet.4.1.6.zip";s:5:"icons";a:2:{s:2:"2x";s:59:"https://ps.w.org/akismet/assets/icon-256x256.png?rev=969272";s:2:"1x";s:59:"https://ps.w.org/akismet/assets/icon-128x128.png?rev=969272";}s:7:"banners";a:1:{s:2:"1x";s:61:"https://ps.w.org/akismet/assets/banner-772x250.jpg?rev=479904";}s:11:"banners_rtl";a:0:{}s:6:"tested";s:5:"5.4.2";s:12:"requires_php";b:0;s:13:"compatibility";O:8:"stdClass":0:{}}}s:12:"translations";a:1:{i:0;a:7:{s:4:"type";s:6:"plugin";s:4:"slug";s:11:"hello-dolly";s:8:"language";s:5:"pt_BR";s:7:"version";s:5:"1.7.2";s:7:"updated";s:19:"2019-08-13 18:09:11";s:7:"package";s:78:"https://downloads.wordpress.org/translation/plugin/hello-dolly/1.7.2/pt_BR.zip";s:10:"autoupdate";b:1;}}s:9:"no_update";a:1:{s:9:"hello.php";O:8:"stdClass":9:{s:2:"id";s:25:"w.org/plugins/hello-dolly";s:4:"slug";s:11:"hello-dolly";s:6:"plugin";s:9:"hello.php";s:11:"new_version";s:5:"1.7.2";s:3:"url";s:42:"https://wordpress.org/plugins/hello-dolly/";s:7:"package";s:60:"https://downloads.wordpress.org/plugin/hello-dolly.1.7.2.zip";s:5:"icons";a:2:{s:2:"2x";s:64:"https://ps.w.org/hello-dolly/assets/icon-256x256.jpg?rev=2052855";s:2:"1x";s:64:"https://ps.w.org/hello-dolly/assets/icon-128x128.jpg?rev=2052855";}s:7:"banners";a:1:{s:2:"1x";s:66:"https://ps.w.org/hello-dolly/assets/banner-772x250.jpg?rev=2052855";}s:11:"banners_rtl";a:0:{}}}}', 'no');
+	(174, '_transient_health-check-site-status-result', '{"good":"11","recommended":"5","critical":"1"}', 'yes'),
+	(316, '_site_transient_timeout_php_check_f9714bbe413cc376a70847d9c1f86fcc', '1593017834', 'no'),
+	(317, '_site_transient_php_check_f9714bbe413cc376a70847d9c1f86fcc', 'a:5:{s:19:"recommended_version";s:3:"7.3";s:15:"minimum_version";s:6:"5.6.20";s:12:"is_supported";b:1;s:9:"is_secure";b:1;s:13:"is_acceptable";b:1;}', 'no'),
+	(325, '_site_transient_update_core', 'O:8:"stdClass":4:{s:7:"updates";a:3:{i:0;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:6:"locale";s:5:"pt_BR";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"5.4.2";s:7:"version";s:5:"5.4.2";s:11:"php_version";s:6:"5.6.20";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"5.3";s:15:"partial_version";s:0:"";}i:1;O:8:"stdClass":10:{s:8:"response";s:7:"upgrade";s:8:"download";s:59:"https://downloads.wordpress.org/release/wordpress-5.4.2.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:59:"https://downloads.wordpress.org/release/wordpress-5.4.2.zip";s:10:"no_content";s:70:"https://downloads.wordpress.org/release/wordpress-5.4.2-no-content.zip";s:11:"new_bundled";s:71:"https://downloads.wordpress.org/release/wordpress-5.4.2-new-bundled.zip";s:7:"partial";s:69:"https://downloads.wordpress.org/release/wordpress-5.4.2-partial-1.zip";s:8:"rollback";b:0;}s:7:"current";s:5:"5.4.2";s:7:"version";s:5:"5.4.2";s:11:"php_version";s:6:"5.6.20";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"5.3";s:15:"partial_version";s:5:"5.4.1";}i:2;O:8:"stdClass":11:{s:8:"response";s:10:"autoupdate";s:8:"download";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:6:"locale";s:5:"pt_BR";s:8:"packages";O:8:"stdClass":5:{s:4:"full";s:65:"https://downloads.wordpress.org/release/pt_BR/wordpress-5.4.2.zip";s:10:"no_content";b:0;s:11:"new_bundled";b:0;s:7:"partial";b:0;s:8:"rollback";b:0;}s:7:"current";s:5:"5.4.2";s:7:"version";s:5:"5.4.2";s:11:"php_version";s:6:"5.6.20";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"5.3";s:15:"partial_version";s:0:"";s:9:"new_files";s:1:"1";}}s:12:"last_checked";i:1592852721;s:15:"version_checked";s:5:"5.4.1";s:12:"translations";a:0:{}}', 'no'),
+	(326, '_site_transient_update_themes', 'O:8:"stdClass":4:{s:12:"last_checked";i:1592852726;s:7:"checked";a:1:{s:13:"theme-projeto";s:3:"1.0";}s:8:"response";a:0:{}s:12:"translations";a:0:{}}', 'no'),
+	(327, '_site_transient_update_plugins', 'O:8:"stdClass":4:{s:12:"last_checked";i:1592852724;s:8:"response";a:0:{}s:12:"translations";a:0:{}s:9:"no_update";a:0:{}}', 'no'),
+	(329, '_site_transient_timeout_browser_6ba3acef63506eadb2027f46c366f9a7', '1593285890', 'no'),
+	(330, '_site_transient_browser_6ba3acef63506eadb2027f46c366f9a7', 'a:10:{s:4:"name";s:6:"Chrome";s:7:"version";s:13:"83.0.4103.106";s:8:"platform";s:7:"Windows";s:10:"update_url";s:29:"https://www.google.com/chrome";s:7:"img_src";s:43:"http://s.w.org/images/browsers/chrome.png?1";s:11:"img_src_ssl";s:44:"https://s.w.org/images/browsers/chrome.png?1";s:15:"current_version";s:2:"18";s:7:"upgrade";b:0;s:8:"insecure";b:0;s:6:"mobile";b:0;}', 'no'),
+	(332, 'recently_activated', 'a:0:{}', 'yes'),
+	(368, '_site_transient_timeout_theme_roots', '1592854525', 'no'),
+	(369, '_site_transient_theme_roots', 'a:1:{s:13:"theme-projeto";s:7:"/themes";}', 'no');
 /*!40000 ALTER TABLE `wp_options` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela db_projetoarquitetura.wp_postmeta
@@ -287,9 +316,9 @@ CREATE TABLE IF NOT EXISTS `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`(191))
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_postmeta: ~26 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_postmeta: ~37 rows (aproximadamente)
 DELETE FROM `wp_postmeta`;
 /*!40000 ALTER TABLE `wp_postmeta` DISABLE KEYS */;
 INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUES
@@ -319,7 +348,17 @@ INSERT INTO `wp_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VALUE
 	(36, 22, '_edit_lock', '1592077752:1'),
 	(37, 22, '_edit_last', '1'),
 	(38, 25, '_edit_lock', '1592187952:1'),
-	(39, 25, '_edit_last', '1');
+	(39, 25, '_edit_last', '1'),
+	(40, 27, '_edit_lock', '1592680945:1'),
+	(41, 27, '_edit_last', '1'),
+	(42, 29, '_wp_attached_file', '2020/06/cachorro_banner1.jpg'),
+	(43, 29, '_wp_attachment_metadata', 'a:5:{s:5:"width";i:1920;s:6:"height";i:768;s:4:"file";s:28:"2020/06/cachorro_banner1.jpg";s:5:"sizes";a:5:{s:6:"medium";a:4:{s:4:"file";s:28:"cachorro_banner1-300x120.jpg";s:5:"width";i:300;s:6:"height";i:120;s:9:"mime-type";s:10:"image/jpeg";}s:5:"large";a:4:{s:4:"file";s:29:"cachorro_banner1-1024x410.jpg";s:5:"width";i:1024;s:6:"height";i:410;s:9:"mime-type";s:10:"image/jpeg";}s:9:"thumbnail";a:4:{s:4:"file";s:28:"cachorro_banner1-150x150.jpg";s:5:"width";i:150;s:6:"height";i:150;s:9:"mime-type";s:10:"image/jpeg";}s:12:"medium_large";a:4:{s:4:"file";s:28:"cachorro_banner1-768x307.jpg";s:5:"width";i:768;s:6:"height";i:307;s:9:"mime-type";s:10:"image/jpeg";}s:9:"1536x1536";a:4:{s:4:"file";s:29:"cachorro_banner1-1536x614.jpg";s:5:"width";i:1536;s:6:"height";i:614;s:9:"mime-type";s:10:"image/jpeg";}}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"1";s:8:"keywords";a:0:{}}}'),
+	(44, 27, '_thumbnail_id', '29'),
+	(45, 27, 'title_banner', 'Tem um animal em situação de emergência?'),
+	(46, 31, '_edit_lock', '1592788379:1'),
+	(47, 31, '_edit_last', '1'),
+	(48, 31, '_thumbnail_id', '11'),
+	(49, 31, 'title_banner', 'Veja a lista de animais em situação de emergência');
 /*!40000 ALTER TABLE `wp_postmeta` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela db_projetoarquitetura.wp_posts
@@ -352,9 +391,9 @@ CREATE TABLE IF NOT EXISTS `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_posts: ~18 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_posts: ~25 rows (aproximadamente)
 DELETE FROM `wp_posts`;
 /*!40000 ALTER TABLE `wp_posts` DISABLE KEYS */;
 INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES
@@ -376,7 +415,13 @@ INSERT INTO `wp_posts` (`ID`, `post_author`, `post_date`, `post_date_gmt`, `post
 	(23, 1, '2020-06-13 14:40:12', '2020-06-13 17:40:12', '', 'Usuário', '', 'inherit', 'closed', 'closed', '', '22-revision-v1', '', '', '2020-06-13 14:40:12', '2020-06-13 17:40:12', '', 22, 'http://localhost/ProjetoArquitetura/2020/06/13/22-revision-v1/', 0, 'revision', '', 0),
 	(24, 1, '2020-06-13 14:55:55', '2020-06-13 17:55:55', '', 'Meu perfil', '', 'inherit', 'closed', 'closed', '', '22-revision-v1', '', '', '2020-06-13 14:55:55', '2020-06-13 17:55:55', '', 22, 'http://localhost/ProjetoArquitetura/2020/06/13/22-revision-v1/', 0, 'revision', '', 0),
 	(25, 1, '2020-06-13 16:51:46', '2020-06-13 19:51:46', '', 'Cadastrar', '', 'publish', 'closed', 'closed', '', 'cadastrar', '', '', '2020-06-13 16:51:47', '2020-06-13 19:51:47', '', 0, 'http://localhost/ProjetoArquitetura/?page_id=25', 0, 'page', '', 0),
-	(26, 1, '2020-06-13 16:51:46', '2020-06-13 19:51:46', '', 'Cadastrar', '', 'inherit', 'closed', 'closed', '', '25-revision-v1', '', '', '2020-06-13 16:51:46', '2020-06-13 19:51:46', '', 25, 'http://localhost/ProjetoArquitetura/2020/06/13/25-revision-v1/', 0, 'revision', '', 0);
+	(26, 1, '2020-06-13 16:51:46', '2020-06-13 19:51:46', '', 'Cadastrar', '', 'inherit', 'closed', 'closed', '', '25-revision-v1', '', '', '2020-06-13 16:51:46', '2020-06-13 19:51:46', '', 25, 'http://localhost/ProjetoArquitetura/2020/06/13/25-revision-v1/', 0, 'revision', '', 0),
+	(27, 1, '2020-06-20 16:10:23', '2020-06-20 19:10:23', '', 'Emergência', '', 'publish', 'closed', 'closed', '', 'emergencia', '', '', '2020-06-20 16:18:05', '2020-06-20 19:18:05', '', 0, 'http://localhost/ProjetoArquitetura/?page_id=27', 0, 'page', '', 0),
+	(28, 1, '2020-06-20 16:10:23', '2020-06-20 19:10:23', '', 'Emergência', '', 'inherit', 'closed', 'closed', '', '27-revision-v1', '', '', '2020-06-20 16:10:23', '2020-06-20 19:10:23', '', 27, 'http://localhost/ProjetoArquitetura/2020/06/20/27-revision-v1/', 0, 'revision', '', 0),
+	(29, 1, '2020-06-20 16:15:11', '2020-06-20 19:15:11', '', 'cachorro_banner[1]', '', 'inherit', 'open', 'closed', '', 'cachorro_banner1', '', '', '2020-06-20 16:15:11', '2020-06-20 19:15:11', '', 27, 'http://localhost/ProjetoArquitetura/wp-content/uploads/2020/06/cachorro_banner1.jpg', 0, 'attachment', 'image/jpeg', 0),
+	(30, 1, '2020-06-20 16:24:51', '0000-00-00 00:00:00', '', 'Rascunho automático', '', 'auto-draft', 'open', 'open', '', '', '', '', '2020-06-20 16:24:51', '0000-00-00 00:00:00', '', 0, 'http://localhost/ProjetoArquitetura/?p=30', 0, 'post', '', 0),
+	(31, 1, '2020-06-20 19:21:58', '2020-06-20 22:21:58', '', 'Animais em emergência', '', 'publish', 'closed', 'closed', '', 'animais-em-emergencia', '', '', '2020-06-21 16:36:53', '2020-06-21 19:36:53', '', 0, 'http://localhost/ProjetoArquitetura/?page_id=31', 0, 'page', '', 0),
+	(32, 1, '2020-06-20 19:21:58', '2020-06-20 22:21:58', '', 'Animais em emergência', '', 'inherit', 'closed', 'closed', '', '31-revision-v1', '', '', '2020-06-20 19:21:58', '2020-06-20 22:21:58', '', 31, 'http://localhost/ProjetoArquitetura/2020/06/20/31-revision-v1/', 0, 'revision', '', 0);
 /*!40000 ALTER TABLE `wp_posts` ENABLE KEYS */;
 
 -- Copiando estrutura para tabela db_projetoarquitetura.wp_termmeta
@@ -406,7 +451,7 @@ CREATE TABLE IF NOT EXISTS `wp_terms` (
   KEY `name` (`name`(191))
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_terms: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_terms: ~1 rows (aproximadamente)
 DELETE FROM `wp_terms`;
 /*!40000 ALTER TABLE `wp_terms` DISABLE KEYS */;
 INSERT INTO `wp_terms` (`term_id`, `name`, `slug`, `term_group`) VALUES
@@ -440,7 +485,7 @@ CREATE TABLE IF NOT EXISTS `wp_term_taxonomy` (
   KEY `taxonomy` (`taxonomy`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_term_taxonomy: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_term_taxonomy: ~1 rows (aproximadamente)
 DELETE FROM `wp_term_taxonomy`;
 /*!40000 ALTER TABLE `wp_term_taxonomy` DISABLE KEYS */;
 INSERT INTO `wp_term_taxonomy` (`term_taxonomy_id`, `term_id`, `taxonomy`, `description`, `parent`, `count`) VALUES
@@ -458,7 +503,7 @@ CREATE TABLE IF NOT EXISTS `wp_usermeta` (
   KEY `meta_key` (`meta_key`(191))
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_usermeta: ~19 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_usermeta: ~20 rows (aproximadamente)
 DELETE FROM `wp_usermeta`;
 /*!40000 ALTER TABLE `wp_usermeta` DISABLE KEYS */;
 INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALUES
@@ -477,8 +522,8 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 	(13, 1, 'wp_user_level', '10'),
 	(14, 1, 'dismissed_wp_pointers', ''),
 	(15, 1, 'show_welcome_panel', '1'),
-	(16, 1, 'session_tokens', 'a:1:{s:64:"27936f53d8851fd5a8fff24c8fedf72c63a8544b71efe3b72d2dda6fa3c088c7";a:4:{s:10:"expiration";i:1592242749;s:2:"ip";s:3:"::1";s:2:"ua";s:130:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36 Edg/83.0.478.45";s:5:"login";i:1592069949;}}'),
-	(17, 1, 'wp_dashboard_quick_press_last_post_id', '4'),
+	(16, 1, 'session_tokens', 'a:2:{s:64:"7a5d874a2a3d6abf7b5d0211aa54de72fba4b65900000423ac985baf211cf4b7";a:4:{s:10:"expiration";i:1592852994;s:2:"ip";s:3:"::1";s:2:"ua";s:131:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36 Edg/83.0.478.54";s:5:"login";i:1592680194;}s:64:"4cd82bc5be673e49aa4c795c9c76a04bb8471bfac45f80b9f66feecc78e4da9b";a:4:{s:10:"expiration";i:1592940957;s:2:"ip";s:3:"::1";s:2:"ua";s:131:"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36 Edg/83.0.478.54";s:5:"login";i:1592768157;}}'),
+	(17, 1, 'wp_dashboard_quick_press_last_post_id', '30'),
 	(18, 1, 'enable_custom_fields', '1'),
 	(19, 1, 'wp_user-settings', 'libraryContent=browse'),
 	(20, 1, 'wp_user-settings-time', '1590531304');
@@ -502,7 +547,7 @@ CREATE TABLE IF NOT EXISTS `wp_users` (
   KEY `user_email` (`user_email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Copiando dados para a tabela db_projetoarquitetura.wp_users: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela db_projetoarquitetura.wp_users: ~1 rows (aproximadamente)
 DELETE FROM `wp_users`;
 /*!40000 ALTER TABLE `wp_users` DISABLE KEYS */;
 INSERT INTO `wp_users` (`ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, `display_name`) VALUES
