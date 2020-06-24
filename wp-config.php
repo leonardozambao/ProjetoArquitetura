@@ -82,7 +82,7 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', FALSE );
 
 /* Isto é tudo, pode parar de editar! :) */
 

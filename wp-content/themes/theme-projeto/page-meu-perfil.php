@@ -43,6 +43,7 @@ get_header();
                         </figure>
                         <h3 class="item_name"><?php echo $registro["Nome"]; ?></h3>
                     </a>
+                    <a href="javascript:void(0);" onclick="removerAnimal(<?php echo $registro['ID']; ?>, 'emergencia');" class="remover" title="Remover animal da listagem">Remover animal</a>
                 </article>
                 <?php
                     $i++;
